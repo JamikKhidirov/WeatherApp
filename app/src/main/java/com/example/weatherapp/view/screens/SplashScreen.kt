@@ -45,8 +45,6 @@ import com.example.weatherapp.R
 import kotlinx.coroutines.coroutineScope
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
-
-
 @Composable
 fun SplashScreen(onTimeout: () -> Unit = {}) {
 
@@ -78,7 +76,7 @@ fun SplashScreen(onTimeout: () -> Unit = {}) {
             )
         }
         scope.launch {
-            delay(1000) // Немного подождать, чтобы паддинг запускался именно после масштабирования стартует плавно
+            delay(1000) // Немного подождать, чтобы паддинг запускался после масштабирования
             paddingState = true
         }
         delay(2100) // Общее время анимации + паддинг (1с + 1с + небольшой запас)
@@ -130,6 +128,3 @@ fun SplashScreen(onTimeout: () -> Unit = {}) {
         }
     }
 }
-
-
-

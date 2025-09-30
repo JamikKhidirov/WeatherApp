@@ -9,16 +9,21 @@ import androidx.datastore.preferences.core.edit
 import androidx.datastore.preferences.preferencesDataStore
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
+import javax.inject.Inject
+import javax.inject.Singleton
 
 
 val Context.settingsDataStore: DataStore<Preferences> by preferencesDataStore(name = "app-settings")
 
-class AppDataStoreManager(private val context: Context) {
+@Singleton
+class AppDataStoreManager @Inject constructor(
+    private val dataStore: DataStore<Preferences>
+) {
 
     private val ONBORDING_COMPLETED_KEY = booleanPreferencesKey("onbording_completed")
 
     //flow который вытаскивает нужно ли показывать экран Onbording
-    val isOnboarding: Flow<Boolean> = context.settingsDataStore.data.map { preferences ->
+    val isOnboarding: Flow<Boolean> = dataStore.data.map { preferences ->
         preferences[ONBORDING_COMPLETED_KEY] ?: false
     }
 
@@ -26,7 +31,7 @@ class AppDataStoreManager(private val context: Context) {
     //Пользователь впервые зашел в приложение обновляем флажок
 
     suspend fun markOnbordingAsCompleted(){
-        context.settingsDataStore.edit { settings ->
+        dataStore.edit { settings ->
             settings[ONBORDING_COMPLETED_KEY] = true
         }
     }
