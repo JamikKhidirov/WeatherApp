@@ -1,6 +1,7 @@
 package com.example.weatherapp.view.components
 
 import androidx.compose.animation.core.animateDpAsState
+import androidx.compose.animation.core.tween
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.padding
@@ -8,6 +9,7 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.layout.wrapContentSize
 import androidx.compose.material3.ScrollableTabRow
 import androidx.compose.material3.Tab
+import androidx.compose.material3.TabRow
 import androidx.compose.material3.TabRowDefaults
 import androidx.compose.material3.TabRowDefaults.tabIndicatorOffset
 import androidx.compose.material3.Text
@@ -35,24 +37,14 @@ fun HomeTabRow(
     val tabList: List<String> = listOf("Сегодня", "Прогноз", "Осадок")
     var selectedIndex by remember { mutableStateOf(0) }
 
-    ScrollableTabRow(
+    TabRow(
         selectedTabIndex = selectedIndex,
         containerColor = colorResource(R.color.topAppBarColor),
-        indicator = {tabPosition ->
-
-            val currentTabPosition = tabPosition[selectedIndex]
-            //Анимируем сдвиг индикатора
-            var indicatorOffset = animateDpAsState(
-                targetValue =  currentTabPosition.left
-            )
-
-            val currentPossitinLeft = currentTabPosition.left
-
+        indicator = { tabPosition ->
             TabRowDefaults.SecondaryIndicator(
                 modifier = Modifier.fillMaxWidth()
                     .wrapContentSize(align = Alignment.BottomStart)
-                    .width(currentTabPosition.width)
-                    .offset(x = indicatorOffset.value),
+                    .tabIndicatorOffset(tabPosition[selectedIndex]),
                 color = Color.White,
             )
         }
