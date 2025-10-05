@@ -1,7 +1,6 @@
-package com.example.weatherapp.modal
+package com.example.weatherapp.modal.cache
 
 import android.content.Context
-import android.text.BoringLayout
 import androidx.datastore.core.DataStore
 import androidx.datastore.preferences.core.Preferences
 import androidx.datastore.preferences.core.booleanPreferencesKey

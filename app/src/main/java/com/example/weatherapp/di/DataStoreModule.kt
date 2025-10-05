@@ -3,8 +3,8 @@ package com.example.weatherapp.di
 import android.content.Context
 import androidx.datastore.core.DataStore
 import androidx.datastore.preferences.core.Preferences
-import com.example.weatherapp.modal.AppDataStoreManager
-import com.example.weatherapp.modal.settingsDataStore
+import com.example.weatherapp.modal.cache.AppDataStoreManager
+import com.example.weatherapp.modal.cache.settingsDataStore
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

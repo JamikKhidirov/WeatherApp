@@ -3,12 +3,16 @@ package com.example.weatherapp.view.screens
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.dp
 import com.example.weatherapp.R
+import com.example.weatherapp.view.components.BottomHomeScreen
 import com.example.weatherapp.view.components.HomeTabRow
 import com.example.weatherapp.view.components.HomeTopAppBar
 
@@ -35,6 +39,10 @@ fun HomeScreen(){
             }
         }
     ) {paddingValues ->
-
+        BottomHomeScreen(
+            modifier = Modifier.padding(top = 1.dp),
+            cardModifier = Modifier.alpha(0.7f),
+            paddingValues = paddingValues
+        )
     }
 }
