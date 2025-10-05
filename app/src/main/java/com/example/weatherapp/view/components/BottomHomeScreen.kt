@@ -35,11 +35,13 @@ import com.example.weatherapp.modal.data.getSamplemple
 import java.time.LocalDate
 
 
-@OptIn(ExperimentalFoundationApi::class)
+
 @Composable
 @Preview(showSystemUi = true)
 fun BottomHomeScreen(
+    LazyModifier: Modifier = Modifier,
     modifier: Modifier = Modifier,
+    cardModifier: Modifier = Modifier,
     paddingValues: PaddingValues = PaddingValues(10.dp)
 ){
     val messagesByDate = getSamplemple()
@@ -51,18 +53,18 @@ fun BottomHomeScreen(
 
             //Ищем первый видимый стикихеадер
             visibilityItems.firstOrNull{ itemInfo ->
-                itemInfo.key?.toString()?.startsWith("header_") == true
+                itemInfo?.key.toString()?.startsWith("header_") == true
             }?.index ?: 0
         }
     }
 
     Box(
-        modifier = Modifier.fillMaxSize(),
+        modifier = Modifier.then(modifier).fillMaxSize(),
     ){
         LazyColumn(
             modifier = Modifier
                 .fillMaxSize()
-                .then(modifier),
+                .then(LazyModifier),
             state = listState
         ) {
 
@@ -83,7 +85,7 @@ fun BottomHomeScreen(
             //Отображаем DateItem только если дата найдена
             currentDate?.let { date ->
                 DateItem(
-                    modifier = Modifier,
+                    modifier = cardModifier,
                     date = date
                 )
             }
