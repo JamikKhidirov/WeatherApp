@@ -8,4 +8,5 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="topAppBarColor">#484B5B</color>
+    <color name="cardHeaderColor">#32333E</color>
 </resources>

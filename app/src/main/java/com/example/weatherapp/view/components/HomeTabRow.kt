@@ -34,7 +34,6 @@ fun HomeTabRow(
 
     TabRow(
         selectedTabIndex = selectedIndex,
-        containerColor = colorResource(R.color.topAppBarColor),
         indicator = { tabPosition ->
             TabRowDefaults.SecondaryIndicator(
                 modifier = Modifier.fillMaxWidth()
@@ -42,7 +41,9 @@ fun HomeTabRow(
                     .tabIndicatorOffset(tabPosition[selectedIndex]),
                 color = Color.White,
             )
-        }
+        },
+        modifier = modifier,
+        containerColor = colorResource(R.color.topAppBarColor)
     ) {
         tabList.forEachIndexed { index, string ->
             Tab(

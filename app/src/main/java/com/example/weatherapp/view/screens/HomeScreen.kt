@@ -9,6 +9,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.res.colorResource
+import androidx.compose.ui.tooling.preview.Devices.PIXEL_7_PRO
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.weatherapp.R
@@ -18,11 +19,16 @@ import com.example.weatherapp.view.components.HomeTopAppBar
 
 
 @Composable
-@Preview(showSystemUi = true)
+@Preview(
+    showSystemUi = true,
+    device = PIXEL_7_PRO
+
+)
 fun HomeScreen(){
 
     Scaffold(
-        modifier = Modifier.fillMaxSize(),
+        modifier = Modifier.
+        fillMaxSize(),
         topBar = {
             Column(
                 modifier = Modifier
@@ -40,8 +46,8 @@ fun HomeScreen(){
         }
     ) {paddingValues ->
         BottomHomeScreen(
-            modifier = Modifier.padding(top = 1.dp),
-            cardModifier = Modifier.alpha(0.7f),
+            modifier = Modifier.padding(top = 5.dp),
+            cardModifier = Modifier.alpha(0.9f),
             paddingValues = paddingValues
         )
     }

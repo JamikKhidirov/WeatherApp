@@ -12,7 +12,6 @@ data class DataTime(
 )
 
 fun getSamplemple(): Map<LocalDate, List<DataTime>>{
-
     val today = LocalDate.now()
 
     val dates: List<LocalDate> = listOf(
@@ -38,9 +37,9 @@ fun formatDateHeader(date: LocalDate): String {
     val today = LocalDate.now()
     val yeaterDay = today.minusDays(1)
 
-    return when {
-        date == today -> "Сегодня"
-        date == today.minusDays(1) -> "Вчера"
+    return when(date) {
+        today -> "Сегодня"
+        yeaterDay -> "Вчера"
         else -> {
             val formatter = DateTimeFormatter.ofPattern("EEEE, dd MMMM yyyy")
             date.format(formatter)

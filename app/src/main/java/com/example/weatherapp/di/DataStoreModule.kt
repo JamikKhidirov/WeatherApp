@@ -14,7 +14,7 @@ import javax.inject.Singleton
 
 
 @Module
-@InstallIn(SingletonComponent::class) //Модуль буде жить за все время приложения
+@InstallIn(SingletonComponent::class) //Модулль буде жить за все время приложения
 object DataStoreModule {
 
     @Provides
