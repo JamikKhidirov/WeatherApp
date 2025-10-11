@@ -1,4 +1,7 @@
 <resources>
     <string name="app_name">WeatherApp</string>
+    <string name="title_datastore">DataStore</string>
+    <string name="title_common">common</string>
+    <string name="title_presentation">presentation</string>
 
 </resources>

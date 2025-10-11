@@ -11,12 +11,13 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import com.example.weatherapp.screens.HomeScreen
+import com.example.weatherapp.screens.OnbordingScreen
+import com.example.weatherapp.screens.SplashScreen
 import com.example.weatherapp.ui.theme.WeatherAppTheme
-import com.example.weatherapp.view.screens.HomeScreen
-import com.example.weatherapp.view.screens.OnbordingScreen
-import com.example.weatherapp.view.screens.SplashScreen
-import com.example.weatherapp.viewmodal.MainViewModal
+import com.example.weatherapp.viewModal.MainViewModal
 import dagger.hilt.android.AndroidEntryPoint
+import kotlin.getValue
 
 
 @AndroidEntryPoint

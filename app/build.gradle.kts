@@ -3,9 +3,9 @@ plugins {
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.compose)
 
-    // Добавьте плагин Hilt
-    id("com.google.dagger.hilt.android")
+    id("com.google.dagger.hilt.android") version "2.57.2"
     kotlin("kapt")
+
 }
 
 android {
@@ -45,10 +45,20 @@ android {
 
 dependencies {
 
+
+    implementation(project(":cache"))
+    implementation(project(":common"))
+    implementation(project(":data"))
+    implementation(project(":domain"))
+    implementation(project(":network"))
+
+
+
     implementation("androidx.core:core-splashscreen:1.0.1")
     implementation("androidx.datastore:datastore-preferences:1.1.7")
     implementation("com.google.dagger:hilt-android:2.57.2")
     kapt("com.google.dagger:hilt-compiler:2.57.2")
+    implementation("io.coil-kt:coil-compose:2.2.2")
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
     implementation(libs.androidx.activity.compose)
