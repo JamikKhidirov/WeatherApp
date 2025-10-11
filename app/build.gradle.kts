@@ -3,9 +3,9 @@ plugins {
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.compose)
 
-    // Добавьте плагин Hilt
-    id("com.google.dagger.hilt.android")
+    id("com.google.dagger.hilt.android") version "2.57.2"
     kotlin("kapt")
+
 }
 
 android {
@@ -45,9 +45,14 @@ android {
 
 dependencies {
 
-    implementation("com.google.code.gson:gson:2.13.2")
-    implementation("com.squareup.retrofit2:retrofit:3.0.0")
-    implementation("com.squareup.retrofit2:converter-gson:3.0.0")
+
+    implementation(project(":cache"))
+    implementation(project(":common"))
+    implementation(project(":data"))
+    implementation(project(":domain"))
+    implementation(project(":network"))
+
+
 
     implementation("androidx.core:core-splashscreen:1.0.1")
     implementation("androidx.datastore:datastore-preferences:1.1.7")
